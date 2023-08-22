@@ -1,0 +1,62 @@
+<template>
+    <lightning-card title="Change Status of Opportunities">
+
+        <!-- Spinner overlay -->
+        <template if:true={isLoading}>
+            <div class="spinner-overlay">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        
+        <!-- List View -->
+        <div class="slds-box slds-p-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Select">Select</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Opportunity Status">Current Status</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={listedOpportunities} for:item="opp">
+                        <tr key={opp.Id} class="slds-hint-parent">
+                            <td>
+                                <lightning-input type="checkbox" value={opp.Id} onchange={handleSelection}></lightning-input>
+                            </td>
+                            <td>
+                                <a data-id={opp.Id} onclick={navigateToOpportunity}>{opp.Name}</a>
+                            </td>
+                            <td>
+                                {opp.StageName}
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="slds-box slds-p-around_medium">
+            <button class="slds-button slds-button_neutral" onclick={previousPage} disabled={isFirstPage}>Previous</button>
+            <span class="slds-p-horizontal_medium">Page {currentPage} of {totalPages}</span>
+            <button class="slds-button slds-button_neutral" onclick={nextPage} disabled={isLastPage}>Next</button>
+        </div>
+
+        <!-- Update Status -->
+        <div class="slds-box slds-p-around_medium">
+            <lightning-combobox name="status" label="Change Status to" value={selectedStatus} placeholder="Select Status" options={statusOptions} onchange={handleStatusChange}></lightning-combobox>
+            <lightning-button label="Update" variant="brand" onclick={updateOpportunities}></lightning-button>
+        </div>
+    </lightning-card>
+
+    
+</template>
+
+
