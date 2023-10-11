@@ -1,14 +1,47 @@
-# Salesforce DX Project: Next Steps
+## Opportunity Management Automation for Salesforce
+Streamline opportunity management post-conversion with automated tasks and a Lightning Web Component for bulk status updates.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Purpose
+Sales teams often overlook closed opportunities after they're converted. This project aims to facilitate a more seamless process for managing these opportunities, ensuring that they're appropriately reviewed and processed.
 
-## How Do You Plan to Deploy Your Changes?
+## Features
+Automated Task Creation: Whenever an opportunity is marked as closed/won, a task is automatically created for the record's owner. This task serves as a reminder for the user to review and validate the opportunity details.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Bulk Status Updates via LWC: A user-friendly Lightning Web Component allows users to update the status of multiple opportunities simultaneously, making the management process more efficient.
 
-## Configure Your Salesforce DX Project
+## Installation
+Clone this repository to your local machine.
+Deploy the solution to your Salesforce org using Salesforce CLI or a deployment tool of your choice.
+Ensure that you've set up the necessary permissions for the components.<br>
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+**Note:** Before deploying to production, make sure to test in a sandbox or developer environment.
+
+## Usage
+<br>
+
+**Task Creation** <br>
+
+Once the trigger is active, any opportunity marked as closed/won will automatically generate a reminder task for the record's owner.
+<br>
+
+**Bulk Status Updates**<br>
+
+Navigate to the custom LWC tab in Salesforce.
+Select the opportunities you wish to update.
+Use the provided interface to modify the status in bulk and submit.
+<br>
+
+**Testing**<br>
+
+Navigate to Salesforce's Developer Console.
+Run the provided test classes.
+Ensure you achieve the necessary code coverage and that all tests pass successfully.
+<br>
+
+**Contribution**<br>
+
+Contributions are welcome! Please create a pull request with your proposed changes, and they will be reviewed promptly. Ensure that any modifications maintain or improve the existing code coverage.
+
 
 ## Read All About It
 
